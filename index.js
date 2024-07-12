@@ -1,11 +1,16 @@
-import express, {json} from "express"
-import cors from "cors"
-import dotenv from "dotenv"
+// modulos externos
+import express, {json} from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 
-const app = express()
-app.use(cors())
-app.use(json())
-dotenv.config()
+// modulos internos
+import db from "./banco.js";
 
 
-app.listen(process.env.PORT, ()=>{console.log("Servidor on")})
+// configurações iniciais
+const app = express();
+app.use(cors());
+app.use(json());
+dotenv.config();
+
+app.listen(process.env.PORT, ()=>{console.log("Servidor on")});
