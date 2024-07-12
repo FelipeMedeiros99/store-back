@@ -1,16 +1,17 @@
-// modulos externos
+// -------------- modulos externos -------------
 import express, {json} from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
-// modulos internos
-import db from "./banco.js";
+// -------------- modulos internos ------------------
 
 
-// configurações iniciais
+// ------------ configurações servidor ---------------
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(json());
-dotenv.config();
 
+
+// ------------- configuração de porta --------------------
 app.listen(process.env.PORT, ()=>{console.log("Servidor on")});
