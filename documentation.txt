@@ -9,3 +9,12 @@ post("link/cadastro")
 }
 
 ------------------ LOGIN ----------------------
+
+post("link/login")
+
+{
+    "nome": "fulano",
+    "senha": "ful134"
+}
+
+response: objeto contendo os itens de compra
