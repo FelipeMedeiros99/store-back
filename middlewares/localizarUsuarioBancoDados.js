@@ -1,7 +1,3 @@
-// modulos externos
-import bcrypt from "bcrypt";
-
-// modulos internos
 import db from "../banco.js";
 
 /**
@@ -14,6 +10,7 @@ export default async function localizarUsuarioBancoDados(req, res, next){
         if(dadosUsuarioBanco==null){
             return res.status(401).send("Usuário não encontrado");
         }
+        req.dadosUsuarioBanco = dadosUsuarioBanco;
         next();
     }catch(e){
         res.status(401).send(`Erro ao tentar localizar usuário: ${e}`);

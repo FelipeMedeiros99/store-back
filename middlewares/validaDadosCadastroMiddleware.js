@@ -2,6 +2,9 @@
 import filtrarErrosDeSchemas from "../ferramentas/filtrarErrosDeSchemas.js";
 import cadastroSchema from "../schemas/cadastroSchema.js"
 
+/**
+ * valida se os dados foram preenchidos corretamente
+ */
 export default async function validaDadosCadastroMiddleware(req, res, next){
     const {body: dadosDeCadastro} = req;
 

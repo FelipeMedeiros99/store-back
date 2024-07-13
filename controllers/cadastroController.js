@@ -6,7 +6,9 @@ import bcrypt from "bcrypt"
 import db from "../banco.js";
 
 
-// configurando controller 
+/** 
+ * armazena os dados no banco de dados
+*/
 export default async function cadastroController(req, res){
  
     // pegando dados da requisição
@@ -14,6 +16,7 @@ export default async function cadastroController(req, res){
 
     // nome do banco
     const USUARIOSBANCO = process.env.USUARIOSBANCO
+    const HASH = process.env.HASH
     
     // apagando confirmação de senha
     delete body.confirmar 
@@ -21,7 +24,7 @@ export default async function cadastroController(req, res){
     try{
 
         // criptografando senha
-        body.senha = await bcrypt.hash(body.senha, 10)
+        body.senha = await bcrypt.hash(body.senha, parseInt(HASH))
         
         // salvando dados
         await db.collection(USUARIOSBANCO).insertOne(body)
