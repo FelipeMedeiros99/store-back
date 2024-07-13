@@ -4,11 +4,14 @@
 import filtrarErrosDeSchema from "../ferramentas/filtrarErrosDeSchemas.js";
 import loginSchema from "../schemas/loginSchema.js";
 
-export default async function loginController(req, res, next){
+/**
+ * valida se os dados estão preenchidos corretamente
+ */
+export default async function validaDadosDeLoginMiddleware(req, res, next){
     const {body:dados} = req;
     try{
-        await loginSchema.validateAsync(dados)
-        next()
+        await loginSchema.validateAsync(dados);
+        next();
 
     }catch(e){
         const erro = filtrarErrosDeSchema(e);

@@ -1,7 +1,14 @@
-import {Router} from "express"
+// pacotes externos
+import {Router} from "express";
 
-const loginRouter = Router()
+// pacotes internos 
+import validaDadosDeLoginMiddleware from "../middlewares/validaDadosDeLoginMiddleware.js"
+import loginController from "../controllers/loginController.js";
+import localizarUsuarioBancoDados from "../middlewares/localizarUsuarioBancoDados.js";
 
-loginRouter.post("/login", )
+// configurações do roteador
+const loginRouter = Router();
 
-export default loginRouter
+loginRouter.post("/login", validaDadosDeLoginMiddleware, localizarUsuarioBancoDados, loginController);
+
+export default loginRouter;
