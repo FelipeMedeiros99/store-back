@@ -15,6 +15,4 @@ export default async function validaDadosCadastroMiddleware(req, res, next){
         const mensagemErro = filtrarErrosDeSchemas(e);
         res.status(406).send(`Dados inválidos: ${mensagemErro||e}`);
     }
-
-
 }

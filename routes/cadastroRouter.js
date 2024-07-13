@@ -8,7 +8,5 @@ import validaDadosCadastroMiddleware from "../middlewares/validaDadosCadastroMid
 // ------------ configurando rota ---------------
 
 const cadastroRouter = Router();
-
 cadastroRouter.post("/cadastro", validaDadosCadastroMiddleware, cadastroController);
-
 export default cadastroRouter;

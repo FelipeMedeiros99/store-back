@@ -1,0 +1,11 @@
+----------------- CADASTRO ------------------
+post("link/cadastro")
+
+{
+    "nome": "fulano",
+    "email": "fulano@gmail.com",
+    "senha": 'ful134",
+    "confirmar": "ful134"
+}
+
+------------------ LOGIN ----------------------
