@@ -7,10 +7,10 @@ import db from "../banco.js";
 export default async function validaSeEmailJaEstaCadastradoMiddleware(req, res, next){
     const {body:dados} = req;
     dotenv.config()
-    const USUARIOBANCO = process.env.USUARIOBANCO
+    const USUARIOSBANCO = process.env.USUARIOSBANCO
 
     try{
-        const usuario = await db.collection(USUARIOBANCO).findOne({"email": dados.email})
+        const usuario = await db.collection(USUARIOSBANCO).findOne({"email": dados.email})
         if(usuario !== null){
             return res.status(401).send("Este email já está cadastrado")
         }

@@ -6,11 +6,10 @@ import dotenv from "dotenv";
 */
 export default async function validarSeSenhaConfereMiddleware(req, res, next){
     dotenv.config()
-    const HASH = process.env.HASH
     const {dadosUsuarioBanco, body:dados} = req;
 
     try{
-        const match = await bcrypt.compare(dados, dadosUsuarioBanco);
+        const match = await bcrypt.compare(dados.senha, dadosUsuarioBanco.senha);
         if(!match){
             return res.status(401).send("Senha incorreta")
         }

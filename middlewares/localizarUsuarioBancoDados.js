@@ -12,11 +12,11 @@ export default async function localizarUsuarioBancoDados(req, res, next){
     dotenv.config()
     
     const {body: dados} = req;
-    const USUARIOBANCO = process.env.USUARIOBANCO
-
+    const USUARIOSBANCO = process.env.USUARIOSBANCO
+    
     try{
-        const dadosUsuarioBanco = await db.collection(USUARIOBANCO).findOne({"email": dados.email});
-        if(dadosUsuarioBanco==null){
+        const dadosUsuarioBanco = await db.collection(USUARIOSBANCO).findOne({"email": dados.email});
+        if(dadosUsuarioBanco===null){
             return res.status(401).send("Usuário não encontrado");
         }
         req.dadosUsuarioBanco = dadosUsuarioBanco;
