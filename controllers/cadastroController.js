@@ -13,7 +13,7 @@ export default async function cadastroController(req, res){
  
     // pegando dados da requisição
     let {body} = req;
-
+    
     // nome do banco
     const USUARIOSBANCO = process.env.USUARIOSBANCO
     const HASH = process.env.HASH
@@ -33,7 +33,6 @@ export default async function cadastroController(req, res){
         res.sendStatus(201)
 
     }catch(e){
-        console.log(`Erro ao salvar usuario`, e)
-        res.status(400).send(e)
+        res.status(400).send(`Erro ao salvar usuario: \n ${e}`)
     }
 }

@@ -1,12 +1,21 @@
+// modulos externos
+import dotenv from "dotenv";
+
+// modulos internos
 import db from "../banco.js";
+
 
 /**
  * verifica se o email está cadastrado no banco de dados
  */
 export default async function localizarUsuarioBancoDados(req, res, next){
+    dotenv.config()
+    
     const {body: dados} = req;
+    const USUARIOBANCO = process.env.USUARIOBANCO
+
     try{
-        const dadosUsuarioBanco = await db.collection("store-clients").findOne({"email": dados.email});
+        const dadosUsuarioBanco = await db.collection(USUARIOBANCO).findOne({"email": dados.email});
         if(dadosUsuarioBanco==null){
             return res.status(401).send("Usuário não encontrado");
         }

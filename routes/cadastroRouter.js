@@ -9,5 +9,8 @@ import validaSeEmailJaEstaCadastradoMiddleware from "../middlewares/validaSeEmai
 // ------------ configurando rota ---------------
 
 const cadastroRouter = Router();
-cadastroRouter.post("/cadastro", validaDadosCadastroMiddleware, validaSeEmailJaEstaCadastradoMiddleware, cadastroController);
+cadastroRouter.post("/cadastro", 
+                    validaDadosCadastroMiddleware, 
+                    validaSeEmailJaEstaCadastradoMiddleware, 
+                    cadastroController);
 export default cadastroRouter;
