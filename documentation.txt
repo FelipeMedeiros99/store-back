@@ -27,6 +27,7 @@ post("cadastrar-produto")
     “preco”:  2599.57,
     "id": 156468472,
     “descricao”: “Notebook positivo i3 ddr3 8gb de memória ssd, tela de 15", wifi 5gbm”,
+    "imagem": link,
     “especificacoes”: [
                     “Voltagem: 100V/240V”, 
                     “Tamanho da tela: 24''“, 
