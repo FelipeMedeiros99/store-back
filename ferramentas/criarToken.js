@@ -8,6 +8,6 @@ import dotenv from "dotenv"
 export default function criarToken(objeto){
     dotenv.config()
     const CHAVESECRETA = process.env.CHAVESECRETA
-    const token = jwt.sign(objeto, CHAVESECRETA, {expiresIn: 20})
+    const token = jwt.sign(objeto, CHAVESECRETA, {expiresIn: 60*2})
     return token
 }

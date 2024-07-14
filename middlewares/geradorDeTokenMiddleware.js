@@ -11,14 +11,13 @@ export default async function geradorDeTokenMiddleware(req, res, next){
     const {body:dados} = req;
     let token;
     try{
-        // verificando se não existe token ativo e
-        token = await db.collection(TOKENSBANCO).findOne({'email': dados.email})
+        // deletando caso haja um token antigo em uso
+        await db.collection(TOKENSBANCO).deleteOne({'email': dados.email})
         if(token!==null){
             req.token = token
-            return next()
         }
 
-        // criando token novo caso não tenha cadastrado
+        // criando token novo
         token=criarToken(dados)
         req.token = token
 

@@ -18,3 +18,20 @@ post("link/login")
 }
 
 response: objeto contendo os itens de compra
+
+------------------ CADASTRAR PRODUTO ---------------
+post("cadastrar-produto")
+
+{
+    “nome”: “Notebook dell”,
+    “preco”:  2599.57,
+    "id": 156468472,
+    “descricao”: “Notebook positivo i3 ddr3 8gb de memória ssd, tela de 15", wifi 5gbm”,
+    “especificacoes”: [
+                    “Voltagem: 100V/240V”, 
+                    “Tamanho da tela: 24''“, 
+                    “Tela led de 24''“, 
+                    “Tem uma resolução de 1920px-1080px”, 
+                    “Proporção da tela de 16:9”, 
+                    “Painel IPS, Seu brilho é de 250cd/m²”, “Com conexão D-Sub”, “É reclinável”]
+}
