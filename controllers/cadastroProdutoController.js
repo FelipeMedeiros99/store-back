@@ -11,7 +11,9 @@ export default async function cadastroProdutoController(req, res){
     const PRODUTOSBANCO = process.env.PRODUTOSBANCO;
     
     try{
-        await db.collection(PRODUTOSBANCO).insertOne(PRODUTOSBANCO);
+        await db.collection(PRODUTOSBANCO).insertOne({...dadosProduto, id: Date.now()});
+        const produtos = await db.collection(PRODUTOSBANCO).find({}).toArray()
+        res.status(200).send(produtos)
     }catch(e){
         res.status(404).send(`Erro ao cadastrar produto: ${e}`);
     }

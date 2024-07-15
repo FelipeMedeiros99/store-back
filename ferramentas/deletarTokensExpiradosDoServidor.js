@@ -21,11 +21,7 @@ export default async function deletarTokensExpiradosDoServidor() {
     try {
         const objetosToken = await db.collection(TOKENSBANCO).find({}).toArray();
         let tokensExpirados = objetosToken.filter((objetoToken) => validaToken(objetoToken.token));
-        
-        console.log(tokensExpirados)
         let idsExpirados = tokensExpirados.map((objetoToken)=>objetoToken._id);
-
-        // console.log(tokensExpirados)
 
         // deletando token
         await db.collection(TOKENSBANCO).deleteMany({
