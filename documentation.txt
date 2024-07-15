@@ -21,6 +21,9 @@ response: objeto contendo os itens de compra
 
 ------------------ CADASTRAR PRODUTO ---------------
 post("cadastrar-produto")
+headers{
+    "Authorization": "Bearer token"
+}
 
 {
     “nome”: “Notebook dell”,

@@ -18,8 +18,9 @@ export default async function validarTokenMiddleware(req, res, next){
         }
 
         // buscando token no servidor
-        const tokenServidor = await db.collection(TOKENSBANCO).findOne({token})
-        if(tokenServidor===null){
+        const dadosTokenServidor = await db.collection(TOKENSBANCO).findOne({token})
+        req.dadosTokenServidor = dadosTokenServidor
+        if(dadosTokenServidor===null){
             return res.status(401).send("Seu token expirou, faça login novamente")
         }
         next()

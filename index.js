@@ -8,6 +8,7 @@ import cadastroRouter from "./routes/cadastroRouter.js";
 import loginRouter from "./routes/loginRouter.js";
 import deletarTokensExpiradosDoServidor from "./ferramentas/deletarTokensExpiradosDoServidor.js";
 import cadastrarProdutoRouter from "./routes/cadastrarProdutoRouter.js"
+import adicionarCarrinhoRouter from "./routes/adicionarCarrinhoRouter.js";
 // ------------ configurações servidor ---------------
 dotenv.config();
 const app = express();
@@ -18,9 +19,10 @@ app.use(json());
 app.use(cadastroRouter)
 app.use(loginRouter)
 app.use(cadastrarProdutoRouter)
+app.use(adicionarCarrinhoRouter)
 
 // apagando tokens expirados
-setInterval(deletarTokensExpiradosDoServidor, 1000)
+setInterval(deletarTokensExpiradosDoServidor, 30000)
 
 // ------------- configuração de porta --------------------
 app.listen(process.env.PORT, ()=>{console.log("Servidor on")});
