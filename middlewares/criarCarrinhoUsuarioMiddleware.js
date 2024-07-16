@@ -7,13 +7,10 @@ import db from "../banco.js";
 
 export default async function criarCarrinhoUsuarioMiddleware(req, res, next){
     dotenv.config()
-    const {token} = req;
-    const {body} = req;
-    const CHAVESECRETA = process.env.CHAVESECRETA;
+    const {dadosUsuarioToken:dadosUsuario, body} = req;
+
     const CARRINHOSBANCO = process.env.CARRINHOSBANCO;
     try{
-        const dadosUsuario = jwt.verify(token, CHAVESECRETA)
-        req.dadosUsuario = dadosUsuario;
         // verificando se o usuário já possui carrinho
         const carrinhoUsuario = await db.collection(CARRINHOSBANCO).findOne({"email": dadosUsuario.email})
         

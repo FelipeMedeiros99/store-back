@@ -6,12 +6,10 @@ import db from "../banco.js";
 
 export default async function adicionarOuRemoverCarrinhoController(req, res){
     dotenv.config()
-    const {body, dadosUsuario} = req;
+    const {body, dadosUsuarioToken:dadosUsuario} = req;
     const CARRINHOSBANCO = process.env.CARRINHOSBANCO;
     try{
-    
-        req.dadosUsuario = dadosUsuario;
-    
+        
         // buscando dados do carrinho
         const dadosCarrinho = await db.collection(CARRINHOSBANCO).findOne({"email": dadosUsuario.email})
         
