@@ -39,3 +39,15 @@ headers{
                     “Proporção da tela de 16:9”, 
                     “Painel IPS, Seu brilho é de 250cd/m²”, “Com conexão D-Sub”, “É reclinável”]
 }
+
+----------------- ADICIONAR PRODUTO AO CARRINHO -----------
+put("/adicionar-carrinho")
+
+headers{
+    "Authorization": "Bearer token"
+}
+
+{
+    idProduto: 12374930248302
+}
+
