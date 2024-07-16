@@ -52,9 +52,16 @@ headers{
 }
 
 ------------------ BUSCAR PRODUTOS CARRINHO ------------------
-get("/produtos-carrinho)
+get("/produtos-carrinho")
 
 headers{
     "Authorization": "Bearer token"
 }
 
+-------------------- LIMPAR CARRINHO ----------------------------
+
+delete("produtos-carrinho")
+
+headers{
+    "Authorization": "Bearer token"
+}
