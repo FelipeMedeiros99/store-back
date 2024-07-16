@@ -17,6 +17,8 @@ export default async function geradorDeTokenMiddleware(req, res, next){
             req.token = token
         }
 
+        // removendo senha, por segurança
+        delete dados.senha
         // criando token novo
         token=criarToken(dados)
         req.token = token
