@@ -51,3 +51,10 @@ headers{
     idProduto: 12374930248302
 }
 
+------------------ BUSCAR PRODUTOS CARRINHO ------------------
+get("/produtos-carrinho)
+
+headers{
+    "Authorization": "Bearer token"
+}
+
