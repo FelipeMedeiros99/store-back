@@ -4,7 +4,7 @@ import dotenv from "dotenv"
 // modulos internos
 import db from "../banco.js";
 
-export default async function adicionarOuRemoverCarrinhoController(req, res){
+export default async function adicionarCarrinhoController(req, res){
     dotenv.config()
     const {body, dadosUsuarioToken:dadosUsuario} = req;
     const CARRINHOSBANCO = process.env.CARRINHOSBANCO;
@@ -23,7 +23,7 @@ export default async function adicionarOuRemoverCarrinhoController(req, res){
                     $pull: {"produtos": body.idProduto}
                 }
             )
-            return res.status(200).send("Produto removido do carrinho");
+            return res.status(200).send("Produto já está no carrinho");
         }
         
         // adicionando produto 
