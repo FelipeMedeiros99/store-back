@@ -11,6 +11,7 @@ import cadastrarProdutoRouter from "./routes/cadastrarProdutoRouter.js"
 import adicionarCarrinhoRouter from "./routes/adicionarCarrinhoRouter.js";
 import buscarProdutosCarrinhoRouter from "./routes/buscarProdutosCarrinhoRouter.js";
 import limparCarrinhoRouter from "./routes/limparCarrinhoRouter.js";
+import removerCarrinhoRouter from "./routes/removerCarrinhoRouter.js";
 // ------------ configurações servidor ---------------
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use(cadastrarProdutoRouter);
 app.use(adicionarCarrinhoRouter);
 app.use(buscarProdutosCarrinhoRouter);
 app.use(limparCarrinhoRouter);
+app.use(removerCarrinhoRouter)
 
 // apagando tokens expirados
 setInterval(deletarTokensExpiradosDoServidor, 30000)
